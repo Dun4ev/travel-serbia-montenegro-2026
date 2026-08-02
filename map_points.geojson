@@ -1,0 +1,120 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"id": "belgrade-center", "name": "Белград - обзорная точка", "priority": "обязательно", "dates": ["2026-08-06", "2026-08-16"]},
+      "geometry": {"type": "Point", "coordinates": [20.4568974, 44.8178131]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "gold-gondola-zlatibor", "name": "Gold Gondola Zlatibor - нижняя станция", "priority": "обязательно", "date": "2026-08-07"},
+      "geometry": {"type": "Point", "coordinates": [19.6945546, 43.7229236]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "brdo-zlatar-area", "name": "Brdo / район Златара", "priority": "обязательно", "dates": ["2026-08-15", "2026-08-16"]},
+      "geometry": {"type": "Point", "coordinates": [19.82196, 43.438795]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "banjska-stena", "name": "Banjska Stena", "priority": "обязательно", "date": "2026-08-16"},
+      "geometry": {"type": "Point", "coordinates": [19.4007635, 43.9516697]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "drina-river-house", "name": "Drina River Small House", "priority": "обязательно", "date": "2026-08-16"},
+      "geometry": {"type": "Point", "coordinates": [19.5665783, 43.9843294]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "ali-pasha-springs", "name": "Ali-pašini izvori", "priority": "обязательно", "date": "2026-08-10"},
+      "geometry": {"type": "Point", "coordinates": [19.82476, 42.54985]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "grlja-waterfall", "name": "Vodopad Grlja / kanjon Grlja", "priority": "обязательно", "date": "2026-08-10"},
+      "geometry": {"type": "Point", "coordinates": [19.8416, 42.52286]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "oko-skakavice", "name": "Oko Skakavice / Savino oko", "priority": "обязательно", "date": "2026-08-10"},
+      "geometry": {"type": "Point", "coordinates": [19.834791, 42.51187]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "ropojana-valley-short", "name": "Ropojana Valley - короткая прогулка", "priority": "желательно", "date": "2026-08-10"},
+      "geometry": {"type": "Point", "coordinates": [19.815722, 42.502074]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "gusinje-center", "name": "Gusinje center", "priority": "желательно", "date": "2026-08-10"},
+      "geometry": {"type": "Point", "coordinates": [19.8333, 42.5638]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "plav-lake", "name": "Plavsko jezero", "priority": "дополнительно", "date": "2026-08-10"},
+      "geometry": {"type": "Point", "coordinates": [19.926111, 42.596111]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "kotor-old-town", "name": "Stari Grad Kotor", "priority": "обязательно", "date": "2026-08-12"},
+      "geometry": {"type": "Point", "coordinates": [18.7712, 42.4247]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "kotor-fortress", "name": "Kotor Fortress", "priority": "обязательно", "date": "2026-08-12"},
+      "geometry": {"type": "Point", "coordinates": [18.7745686, 42.4219592]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "perast", "name": "Perast", "priority": "обязательно", "date": "2026-08-13"},
+      "geometry": {"type": "Point", "coordinates": [18.69917, 42.48694]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "gospa-od-skrpjela", "name": "Gospa od Škrpjela", "priority": "желательно", "date": "2026-08-13"},
+      "geometry": {"type": "Point", "coordinates": [18.688889, 42.486667]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "st-nicholas-perast", "name": "Crkva Svetog Nikole Perast", "priority": "обязательно", "date": "2026-08-13"},
+      "geometry": {"type": "Point", "coordinates": [18.69864, 42.48616]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "smekja-palace", "name": "Smekja Palace", "priority": "обязательно", "date": "2026-08-13"},
+      "geometry": {"type": "Point", "coordinates": [18.69735, 42.487039]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "perast-museum", "name": "Perast Museum / Bujović Palace", "priority": "желательно", "date": "2026-08-13"},
+      "geometry": {"type": "Point", "coordinates": [18.696172, 42.488069]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "perast-swim", "name": "Купание у южной части набережной Пераста", "priority": "дополнительно", "date": "2026-08-13"},
+      "geometry": {"type": "Point", "coordinates": [18.7037, 42.4856]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "kraken-underwater-wine", "name": "Underwater Wine Cellar Kraken", "priority": "желательно", "date": "2026-08-13"},
+      "geometry": {"type": "Point", "coordinates": [18.7425675, 42.4852509]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "kotor-cable-car-dub", "name": "Kotor Cable Car - Dub Station", "priority": "обязательно", "date": "2026-08-14"},
+      "geometry": {"type": "Point", "coordinates": [18.7469982, 42.3957618]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "kotor-cable-car-kuk", "name": "Kotor Cable Car - Kuk Station / Alpine Coaster", "priority": "обязательно", "date": "2026-08-14"},
+      "geometry": {"type": "Point", "coordinates": [18.7924589, 42.3934046]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "tivat", "name": "Tivat / Porto Montenegro", "priority": "желательно", "date": "2026-08-14"},
+      "geometry": {"type": "Point", "coordinates": [18.692, 42.4319]}
+    }
+  ]
+}

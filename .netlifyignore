@@ -1,0 +1,12 @@
+AGENTS.md
+trip_input.md
+itinerary.md
+logistics.md
+checks_before_departure.md
+places.csv
+map_points.geojson
+scripts/
+output/
+.git/
+.codex/
+.agents/

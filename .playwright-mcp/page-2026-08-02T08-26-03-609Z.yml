@@ -1,0 +1,194 @@
+- generic [active] [ref=f3e1]:
+  - link "К маршруту" [ref=f3e2] [cursor=pointer]:
+    - /url: "#route"
+  - banner [ref=f3e3]:
+    - link "В начало страницы" [ref=f3e4] [cursor=pointer]:
+      - /url: "#top"
+      - generic [ref=f3e5]: S / M
+    - navigation "Основная навигация" [ref=f3e6]:
+      - link "Карта" [ref=f3e7] [cursor=pointer]:
+        - /url: "#map-section"
+      - link "Проверки" [ref=f3e8] [cursor=pointer]:
+        - /url: "#checks"
+  - main [ref=f3e9]:
+    - region [ref=f3e10]:
+      - generic [ref=f3e11]:
+        - paragraph [ref=f3e12]: 06-16 августа · 5 человек · автомобиль
+        - heading "От хвойных склонов к теплой Адриатике" [level=1] [ref=f3e13]: От хвойных склоновк теплой Адриатике
+        - paragraph [ref=f3e14]: Одиннадцать дней через Златибор, Проклетие, Котор и Тару. Маршрут собран так, чтобы сложный горный день не спорил с отдыхом, а дополнительные остановки можно было убрать без ущерба для поездки.
+        - generic [ref=f3e15]:
+          - link "Открыть маршрут" [ref=f3e16] [cursor=pointer]:
+            - /url: "#route"
+          - link "Смотреть карту" [ref=f3e17] [cursor=pointer]:
+            - /url: "#map-section"
+      - generic "Схема основных остановок" [ref=f3e18]:
+        - generic [ref=f3e19]:
+          - generic [ref=f3e20]: 1 600+ км
+          - generic [ref=f3e21]: RS / ME
+        - img "Линия поездки из Белграда через Черногорию и обратно" [ref=f3e22]:
+          - generic [ref=f3e25]: Белград
+          - generic [ref=f3e28]: Златибор
+          - generic [ref=f3e31]: Гусине
+          - generic [ref=f3e34]: Котор
+          - generic [ref=f3e37]: Златар
+          - generic [ref=f3e40]: Тара
+        - paragraph [ref=f3e43]: Высота, море и ранние старты. Свободное место в расписании оставлено намеренно.
+    - region "Кратко о поездке" [ref=f3e44]:
+      - generic [ref=f3e45]:
+        - strong [ref=f3e46]: "11"
+        - generic [ref=f3e47]: дней
+      - generic [ref=f3e48]:
+        - strong [ref=f3e49]: "4"
+        - generic [ref=f3e50]: места ночевки
+      - generic [ref=f3e51]:
+        - strong [ref=f3e52]: "1"
+        - generic [ref=f3e53]: сложный поход
+      - generic [ref=f3e54]:
+        - strong [ref=f3e55]: "18"
+        - generic [ref=f3e56]: точек на карте
+    - region [ref=f3e57]:
+      - generic [ref=f3e58]:
+        - generic [ref=f3e59]:
+          - paragraph [ref=f3e60]: План по дням
+          - heading "Темп поездки" [level=2] [ref=f3e61]
+        - paragraph [ref=f3e62]: Нажмите на день, чтобы увидеть детали. Время и логистика с отметкой требуют финальной проверки.
+      - generic [ref=f3e63]:
+        - tablist "Дни поездки" [ref=f3e64]:
+          - tab "01 06 авг" [selected] [ref=f3e65] [cursor=pointer]:
+            - generic [ref=f3e66]: "01"
+            - strong [ref=f3e67]: 06 авг
+          - tab "02 07 авг" [ref=f3e68] [cursor=pointer]:
+            - generic [ref=f3e69]: "02"
+            - strong [ref=f3e70]: 07 авг
+          - tab "03 08 авг" [ref=f3e71] [cursor=pointer]:
+            - generic [ref=f3e72]: "03"
+            - strong [ref=f3e73]: 08 авг
+          - tab "04 09 авг" [ref=f3e74] [cursor=pointer]:
+            - generic [ref=f3e75]: "04"
+            - strong [ref=f3e76]: 09 авг
+          - tab "05 10 авг" [ref=f3e77] [cursor=pointer]:
+            - generic [ref=f3e78]: "05"
+            - strong [ref=f3e79]: 10 авг
+          - tab "06 11 авг" [ref=f3e80] [cursor=pointer]:
+            - generic [ref=f3e81]: "06"
+            - strong [ref=f3e82]: 11 авг
+          - tab "07 12 авг" [ref=f3e83] [cursor=pointer]:
+            - generic [ref=f3e84]: "07"
+            - strong [ref=f3e85]: 12 авг
+          - tab "08 13 авг" [ref=f3e86] [cursor=pointer]:
+            - generic [ref=f3e87]: "08"
+            - strong [ref=f3e88]: 13 авг
+          - tab "09 14 авг" [ref=f3e89] [cursor=pointer]:
+            - generic [ref=f3e90]: "09"
+            - strong [ref=f3e91]: 14 авг
+          - tab "10 15 авг" [ref=f3e92] [cursor=pointer]:
+            - generic [ref=f3e93]: "10"
+            - strong [ref=f3e94]: 15 авг
+          - tab "11 16 авг" [ref=f3e95] [cursor=pointer]:
+            - generic [ref=f3e96]: "11"
+            - strong [ref=f3e97]: 16 авг
+        - article [ref=f3e98]:
+          - generic [ref=f3e99]:
+            - generic [ref=f3e100]: 06 авг
+            - generic [ref=f3e101]: Златибор
+            - generic [ref=f3e102]: переезд
+          - heading "Белград - Златибор" [level=3] [ref=f3e103]
+          - paragraph [ref=f3e104]: Старт поездки и заезд в Pine Cabins Zlatibor. Детальный расчет дороги и остановок еще не подготовлен.
+          - list [ref=f3e105]:
+            - listitem [ref=f3e106]:
+              - strong [ref=f3e107]: Белград
+              - text: Город отправления требует финального подтверждения.
+            - listitem [ref=f3e108]:
+              - strong [ref=f3e109]: Pine Cabins Zlatibor
+              - text: Заезд с 14:00 до 22:00; точный адрес и парковку проверить.
+            - listitem [ref=f3e110]:
+              - strong [ref=f3e111]: Спокойный вечер
+              - text: Только короткая прогулка и ужин после дороги.
+          - paragraph [ref=f3e112]:
+            - strong [ref=f3e113]: "Учесть:"
+            - text: Маршрут переезда, дорожные работы и время остановок требуют проверки.
+    - region [ref=f3e114]:
+      - generic [ref=f3e115]:
+        - generic [ref=f3e116]:
+          - paragraph [ref=f3e117]: 18 сохраненных точек
+          - heading "Карта маршрута" [level=2] [ref=f3e118]
+        - paragraph [ref=f3e119]: Фильтруйте места по приоритету. Координата показывает объект, но не всегда подтвержденную парковку или точку входа.
+      - generic "Фильтр точек карты" [ref=f3e120]:
+        - button "Все" [ref=f3e121] [cursor=pointer]
+        - button "Обязательно" [ref=f3e122] [cursor=pointer]
+        - button "Желательно" [ref=f3e123] [cursor=pointer]
+        - button "Дополнительно" [ref=f3e124] [cursor=pointer]
+      - generic [ref=f3e125]:
+        - generic "Интерактивная карта точек поездки" [ref=f3e126]:
+          - generic:
+            - generic:
+              - button [ref=f3e127] [cursor=pointer]
+              - button [ref=f3e128] [cursor=pointer]
+              - button [ref=f3e129] [cursor=pointer]
+              - button [ref=f3e130] [cursor=pointer]
+              - button [ref=f3e131] [cursor=pointer]
+              - button [ref=f3e132] [cursor=pointer]
+              - button [ref=f3e133] [cursor=pointer]
+              - button [ref=f3e134] [cursor=pointer]
+              - button [ref=f3e135] [cursor=pointer]
+              - button [ref=f3e136] [cursor=pointer]
+              - button [ref=f3e137] [cursor=pointer]
+              - button [ref=f3e138] [cursor=pointer]
+              - button [ref=f3e139] [cursor=pointer]
+              - button [ref=f3e140] [cursor=pointer]
+              - button [ref=f3e141] [cursor=pointer]
+              - button [ref=f3e142] [cursor=pointer]
+              - button [ref=f3e143] [cursor=pointer]
+              - button [ref=f3e144] [cursor=pointer]
+          - generic:
+            - generic [ref=f3e145]:
+              - button "Zoom in" [ref=f3e146] [cursor=pointer]: +
+              - button "Zoom out" [ref=f3e147] [cursor=pointer]: −
+            - generic [ref=f3e148]:
+              - link "Leaflet" [ref=f3e149] [cursor=pointer]:
+                - /url: https://leafletjs.com
+              - text: "| © OpenStreetMap contributors"
+        - generic: 18 точек
+      - paragraph [ref=f3e154]: "Карта: OpenStreetMap. Данные маршрута проверялись 1-2 августа 2026 года."
+    - region [ref=f3e155]:
+      - generic [ref=f3e156]:
+        - generic [ref=f3e157]:
+          - paragraph [ref=f3e158]: До выезда
+          - heading "Критичные проверки" [level=2] [ref=f3e159]
+        - paragraph [ref=f3e160]: Отметки сохраняются только в этом браузере. Они не меняют исходные файлы маршрута.
+      - generic [ref=f3e161]: 0 из 8
+      - generic [ref=f3e164]:
+        - generic [ref=f3e165] [cursor=pointer]:
+          - checkbox "Подтвердить старт из Белграда и точные адреса всех мест ночевки." [ref=f3e166]
+          - generic [ref=f3e168]: Подтвердить старт из Белграда и точные адреса всех мест ночевки.
+        - generic [ref=f3e169] [cursor=pointer]:
+          - checkbox "Проверить документы автомобиля, страховку и разрешение на пересечение границы." [ref=f3e170]
+          - generic [ref=f3e172]: Проверить документы автомобиля, страховку и разрешение на пересечение границы.
+        - generic [ref=f3e173] [cursor=pointer]:
+          - checkbox "Скачать офлайн-карты, трек похода и координаты жилья." [ref=f3e174]
+          - generic [ref=f3e176]: Скачать офлайн-карты, трек похода и координаты жилья.
+        - generic [ref=f3e177] [cursor=pointer]:
+          - checkbox "Проверить погоду в Проклетие и состояние дороги к Dolja." [ref=f3e178]
+          - generic [ref=f3e180]: Проверить погоду в Проклетие и состояние дороги к Dolja.
+        - generic [ref=f3e181] [cursor=pointer]:
+          - checkbox "Уточнить вход, часы и маршрут Kotor Fortress." [ref=f3e182]
+          - generic [ref=f3e184]: Уточнить вход, часы и маршрут Kotor Fortress.
+        - generic [ref=f3e185] [cursor=pointer]:
+          - checkbox "Проверить парковки, лодки и условия посещения Пераста." [ref=f3e186]
+          - generic [ref=f3e188]: Проверить парковки, лодки и условия посещения Пераста.
+        - generic [ref=f3e189] [cursor=pointer]:
+          - checkbox "Подтвердить бронь Kraken или исключить его из расписания." [ref=f3e190]
+          - generic [ref=f3e192]: Подтвердить бронь Kraken или исключить его из расписания.
+        - generic [ref=f3e193] [cursor=pointer]:
+          - checkbox "Проверить статус Kotor Cable Car и Alpine Coaster 13-14 августа." [ref=f3e194]
+          - generic [ref=f3e196]: Проверить статус Kotor Cable Car и Alpine Coaster 13-14 августа.
+      - button "Сбросить отметки" [ref=f3e197] [cursor=pointer]
+    - region "Важное примечание" [ref=f3e198]:
+      - generic [ref=f3e199]: "!"
+      - generic [ref=f3e200]:
+        - heading "Маршрут живой" [level=2] [ref=f3e201]
+        - paragraph [ref=f3e202]: Погода в горах, дорожная обстановка, часы работы, парковки и условия границы могут измениться. Все неподтвержденное на сайте прямо помечено как требующее проверки.
+  - contentinfo [ref=f3e203]:
+    - generic [ref=f3e204]: Serbia / Montenegro · August 2026
+    - link "Наверх ↑" [ref=f3e205] [cursor=pointer]:
+      - /url: "#top"

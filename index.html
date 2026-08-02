@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#173b35" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛰️</text></svg>" />
+    <meta
+      name="description"
+      content="Интерактивный маршрут автомобильной поездки по Сербии и Черногории, 6-16 августа 2026 года."
+    />
+    <title>Сербия - Черногория 2026</title>
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://tile.openstreetmap.org" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      defer
+    ></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#route">К маршруту</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="В начало страницы">
+        <span class="brand-mark" aria-hidden="true">S / M</span>
+        <span>Roadbook '26</span>
+      </a>
+      <nav aria-label="Основная навигация">
+        <a href="#route">По дням</a>
+        <a href="#map-section">Карта</a>
+        <a href="#checks">Проверки</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">06-16 августа · 5 человек · автомобиль</p>
+          <h1 id="hero-title">От хвойных склонов<br />к теплой Адриатике</h1>
+          <p class="hero-lede">
+            Одиннадцать дней через Златибор, Проклетие, Котор и Тару. Маршрут собран так,
+            чтобы сложный горный день не спорил с отдыхом, а дополнительные остановки можно
+            было убрать без ущерба для поездки.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#route">Открыть маршрут</a>
+            <a class="button button-quiet" href="#map-section">Смотреть карту</a>
+          </div>
+        </div>
+
+        <div class="route-poster" aria-label="Схема основных остановок">
+          <div class="poster-topline">
+            <span>1 600+ км</span>
+            <span>RS / ME</span>
+          </div>
+          <svg class="route-line" viewBox="0 0 420 560" role="img" aria-label="Линия поездки из Белграда через Черногорию и обратно">
+            <path class="route-shadow" d="M308 10 C302 92 102 71 112 168 C121 250 327 201 307 311 C291 398 101 347 115 447 C121 492 190 509 235 550" />
+            <path class="route-dash" d="M308 10 C302 92 102 71 112 168 C121 250 327 201 307 311 C291 398 101 347 115 447 C121 492 190 509 235 550" />
+            <g class="route-stop" transform="translate(308 10)"><circle r="7" /><text x="-16" y="5" text-anchor="end">Белград</text></g>
+            <g class="route-stop" transform="translate(155 88)"><circle r="7" /><text x="-16" y="5" text-anchor="end">Златибор</text></g>
+            <g class="route-stop" transform="translate(112 168)"><circle r="7" /><text x="16" y="5">Гусине</text></g>
+            <g class="route-stop is-sea" transform="translate(307 311)"><circle r="9" /><text x="-16" y="5" text-anchor="end">Котор</text></g>
+            <g class="route-stop" transform="translate(115 447)"><circle r="7" /><text x="16" y="5">Златар</text></g>
+            <g class="route-stop" transform="translate(235 550)"><circle r="7" /><text x="16" y="5">Тара</text></g>
+          </svg>
+          <p class="poster-note">Высота, море и ранние старты. Свободное место в расписании оставлено намеренно.</p>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Кратко о поездке">
+        <div><strong>11</strong><span>дней</span></div>
+        <div><strong>4</strong><span>места ночевки</span></div>
+        <div><strong>1</strong><span>сложный поход</span></div>
+        <div><strong data-point-count>18</strong><span>точек на карте</span></div>
+      </section>
+
+      <section class="route-section" id="route" aria-labelledby="route-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">План по дням</p>
+            <h2 id="route-title">Темп поездки</h2>
+          </div>
+          <p>Нажмите на день, чтобы увидеть детали. Время и логистика с отметкой требуют финальной проверки.</p>
+        </div>
+
+        <div class="route-layout">
+          <div class="day-tabs" role="tablist" aria-label="Дни поездки" id="day-tabs"></div>
+          <article class="day-detail" id="day-detail" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <section class="map-section" id="map-section" aria-labelledby="map-title">
+        <div class="section-heading section-heading-light">
+          <div>
+            <p class="eyebrow"><span data-point-count>18</span> сохраненных точек</p>
+            <h2 id="map-title">Карта маршрута</h2>
+          </div>
+          <p>Фильтруйте места по приоритету. Координата показывает объект, но не всегда подтвержденную парковку или точку входа.</p>
+        </div>
+
+        <div class="map-toolbar" aria-label="Фильтр точек карты">
+          <button class="filter is-active" type="button" data-priority="all">Все</button>
+          <button class="filter" type="button" data-priority="обязательно">Обязательно</button>
+          <button class="filter" type="button" data-priority="желательно">Желательно</button>
+          <button class="filter" type="button" data-priority="дополнительно">Дополнительно</button>
+        </div>
+
+        <div class="map-frame">
+          <div id="map" aria-label="Интерактивная карта точек поездки"></div>
+          <div class="map-status" id="map-status">Загружаю точки...</div>
+        </div>
+        <p class="map-credit">Карта: OpenStreetMap. Данные маршрута проверялись 1-2 августа 2026 года.</p>
+      </section>
+
+      <section class="checks-section" id="checks" aria-labelledby="checks-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">До выезда</p>
+            <h2 id="checks-title">Критичные проверки</h2>
+          </div>
+          <p>Отметки сохраняются только в этом браузере. Они не меняют исходные файлы маршрута.</p>
+        </div>
+        <div class="check-progress" aria-live="polite">
+          <div class="check-progress-track"><span id="check-progress-bar"></span></div>
+          <span id="check-progress-label">0 из 8</span>
+        </div>
+        <div class="check-grid" id="check-grid"></div>
+        <button class="reset-checks" id="reset-checks" type="button">Сбросить отметки</button>
+      </section>
+
+      <section class="notice" aria-label="Важное примечание">
+        <span class="notice-mark" aria-hidden="true">!</span>
+        <div>
+          <h2>Маршрут живой</h2>
+          <p>Погода в горах, дорожная обстановка, часы работы, парковки и условия границы могут измениться. Все неподтвержденное на сайте прямо помечено как требующее проверки.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Serbia / Montenegro · August 2026</span>
+      <a href="#top">Наверх ↑</a>
+    </footer>
+  </body>
+</html>
