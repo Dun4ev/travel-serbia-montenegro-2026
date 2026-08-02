@@ -112,6 +112,32 @@ const priorityClass: Record<MapPriority, string> = {
   дополнительно: "extra",
 };
 
+const locationGuides: Record<string, { tip: string; source: string; sourceLabel: string }> = {
+  "belgrade-center": { tip: "Лучшее завершение маршрута - прогулка по Калемегдану к виду на слияние Савы и Дуная. Машину удобнее оставить в гараже и идти пешком.", source: "https://www.tob.rs/", sourceLabel: "Visit Belgrade" },
+  "gold-gondola-zlatibor": { tip: "Приезжайте к началу работы и утром проверьте статус: ветер и технические работы могут изменить режим. На Tornik оставьте время без спешки.", source: "https://goldgondola.rs/rs/status", sourceLabel: "Статус Gold Gondola" },
+  "brdo-zlatar-area": { tip: "После длинного переезда выбирайте только короткую прогулку рядом с жильем и возвращайтесь до темноты. Точный старт тропы уточните у хозяев.", source: "https://www.serbia.travel/en/zlatar/", sourceLabel: "Tourism Serbia: Zlatar" },
+  "banjska-stena": { tip: "Выезжайте рано, возьмите воду и обувь с хорошим сцеплением. Последний участок проходит пешком, а состояние подъезда стоит уточнить в парке.", source: "https://www.nptara.rs/", sourceLabel: "Национальный парк Тара" },
+  "drina-river-house": { tip: "Планируйте короткую остановку на берегу после Баина-Башты. Домик лучше смотреть и фотографировать с берега, не закладывая отдельный водный трансфер.", source: "https://www.taradrina.com/", sourceLabel: "Tara Drina" },
+  "ali-pasha-springs": { tip: "Спокойная первая остановка дня восстановления. Подходит для короткой прогулки и обеда, но не заменяет запас воды на дальнейший маршрут.", source: "https://gusinje.travel/tourist-offer/", sourceLabel: "Туристическая организация Гусине" },
+  "grlja-waterfall": { tip: "Подход короткий, но у каньона держитесь подальше от края: камни бывают скользкими. Не пытайтесь спускаться к воде вне тропы.", source: "https://gusinje.travel/tourist-offer/", sourceLabel: "Туристическая организация Гусине" },
+  "oko-skakavice": { tip: "Совместите с Grlja, но оставьте отдельное время на лесной подход. После дождя пригодится закрытая обувь, а не пляжные сандалии.", source: "https://gusinje.travel/tourist-offer/", sourceLabel: "Туристическая организация Гусине" },
+  "ropojana-valley-short": { tip: "Это восстановительная прогулка, а не второй поход. Разворачивайтесь до ухудшения грунтовки и не продолжайте к государственной границе.", source: "https://gusinje.travel/tourist-offer/", sourceLabel: "Туристическая организация Гусине" },
+  "gusinje-center": { tip: "Используйте центр как практическую паузу: ранний ужин, продукты, банкомат и подготовка воды. После горного дня не добавляйте дальний выезд.", source: "https://gusinje.travel/", sourceLabel: "Visit Gusinje" },
+  "plav-lake": { tip: "Оставляйте озеро дополнительным вариантом на закат только при хорошем самочувствии группы. Для спокойной паузы достаточно набережной.", source: "https://www.plavto.me/", sourceLabel: "Туристическая организация Плав" },
+  "kotor-old-town": { tip: "Гуляйте после утреннего спуска с крепости: поздний завтрак и тенистые улицы лучше еще одного подъема в жару.", source: "https://kotor.travel/", sourceLabel: "Visit Kotor" },
+  "kotor-fortress": { tip: "Начинайте как можно раньше, берите воду и защиту от солнца. Перед выходом проверьте официальный вход и состояние маршрута, не используйте обходы.", source: "https://kotor.travel/", sourceLabel: "Visit Kotor" },
+  "perast": { tip: "Приезжайте около 08:00 и оставляйте автомобиль у въезда: исторический центр лучше проходить пешком до появления дневных групп.", source: "https://kotor.travel/", sourceLabel: "Visit Kotor" },
+  "gospa-od-skrpjela": { tip: "Сразу согласуйте с лодочником цену, время ожидания и обратный рейс. На острове не нужен длинный визит, если дальше запланирован музей.", source: "https://kotor.travel/", sourceLabel: "Visit Kotor" },
+  "st-nicholas-perast": { tip: "Зайдите в начале прогулки по набережной, если храм открыт. Для посещения интерьера нужна закрытая одежда; режим работы проверьте на месте.", source: "https://kotor.travel/", sourceLabel: "Visit Kotor" },
+  "smekja-palace": { tip: "Рассматривайте дворец как архитектурную остановку на набережной. Доступ внутрь не предполагается без отдельного подтверждения.", source: "https://kotor.travel/", sourceLabel: "Visit Kotor" },
+  "perast-museum": { tip: "Хороший выбор на самый жаркий час. Перед приездом проверьте часы и общий билет на официальном сайте музеев Котора.", source: "https://muzejikotor.me/en/home/perast-museum/", sourceLabel: "Музей Пераста" },
+  "perast-swim": { tip: "Берите обувь для воды и выбирайте только очевидный безопасный вход. Не оставляйте вещи и автомобиль там, где проход мешает местным жителям.", source: "https://kotor.travel/", sourceLabel: "Visit Kotor" },
+  "kraken-underwater-wine": { tip: "Ехать только после подтвержденной брони. Заранее назначьте водителя без алкоголя и запросите точку посадки, длительность и условия отмены.", source: "https://www.underwaterwine.me/index.php/en/floating-wine-bar-winery-cellar-kotor-kraken", sourceLabel: "Kraken Underwater Wine" },
+  "kotor-cable-car-dub": { tip: "Утром проверьте статус, погоду и билеты. Приезжайте с запасом времени на парковку: работа канатной дороги зависит от ветра и грозы.", source: "https://kotorcablecar.me/", sourceLabel: "Kotor Cable Car" },
+  "kotor-cable-car-kuk": { tip: "Наверху прохладнее и ветренее, поэтому возьмите легкий слой одежды. Alpine Coaster планируйте только после подтверждения его работы.", source: "https://kotorcablecar.me/", sourceLabel: "Kotor Cable Car" },
+  "tivat": { tip: "Лучший формат - неспешная вечерняя прогулка по набережной и Porto Montenegro. Не кружите в поиске улицы: сразу выбирайте отмеченную парковку.", source: "https://tivat.travel/en/", sourceLabel: "Visit Tivat" },
+};
+
 const mainRoute = [
   "belgrade-center",
   "gold-gondola-zlatibor",
@@ -222,12 +248,27 @@ function TripMap() {
       meta.textContent = `${feature.properties.priority} · ${formatMapDates(feature)}`;
       const title = document.createElement("strong");
       title.textContent = feature.properties.name;
-      const link = document.createElement("a");
-      link.href = `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=15/${latitude}/${longitude}`;
-      link.target = "_blank";
-      link.rel = "noreferrer";
-      link.textContent = "Открыть точку ↗";
-      popup.append(meta, title, link);
+      const guide = locationGuides[feature.properties.id];
+      const tip = document.createElement("p");
+      tip.textContent = guide?.tip ?? "Перед выездом проверьте подъезд, парковку и локальные ограничения.";
+      const links = document.createElement("div");
+      links.className = "map-popup-links";
+      const usefulLinks = [
+        [guide?.source, guide?.sourceLabel ?? "Источник"],
+        [`https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`, "Маршрут"],
+        [`https://www.google.com/maps/search/?api=1&query=parking+near+${latitude},${longitude}`, "Парковка рядом"],
+        [`https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=15/${latitude}/${longitude}`, "OpenStreetMap"],
+      ];
+      usefulLinks.forEach(([href, label]) => {
+        if (!href) return;
+        const link = document.createElement("a");
+        link.href = href;
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        link.textContent = `${label} ↗`;
+        links.append(link);
+      });
+      popup.append(meta, title, tip, links);
       marker.bindPopup(popup, { closeButton: false, offset: [0, -8] });
       marker.addTo(layer);
     });
@@ -343,7 +384,7 @@ export default function Home() {
         <div className="atlas-copy">
           <p className="kicker">02 / Карта маршрута</p>
           <h2>Весь путь.<br /><i>Одним взглядом.</i></h2>
-          <p>Все 23 отмеченные точки: горы, море, города и короткие остановки. Нажмите на маркер, чтобы увидеть название, дату и открыть точку в OpenStreetMap.</p>
+          <p>Все 23 отмеченные точки: горы, море, города и короткие остановки. В каждой карточке есть практический совет, проверенный источник, маршрут и поиск парковки.</p>
           <div className="map-legend" aria-label="Легенда карты">
             <span><i className="legend-must" />обязательно</span>
             <span><i className="legend-want" />желательно</span>

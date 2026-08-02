@@ -118,12 +118,15 @@ button { color: inherit; }
 .atlas-map-shell .leaflet-control-zoom a { width: 36px; height: 36px; line-height: 34px; color: var(--forest); background: rgba(248,245,237,.94); border-color: rgba(23,32,28,.1); }
 .atlas-map-shell .leaflet-control-attribution { padding: 3px 6px; color: #5e6762; background: rgba(248,245,237,.82); font-size: 8px; }
 .atlas-map-shell .leaflet-popup-content-wrapper { padding: 0; color: var(--ink); background: var(--cream); border-radius: 2px 22px 2px 2px; box-shadow: 0 16px 40px rgba(23,32,28,.25); }
-.atlas-map-shell .leaflet-popup-content { width: 215px !important; margin: 0; }
+.atlas-map-shell .leaflet-popup-content { width: 292px !important; margin: 0; }
 .atlas-map-shell .leaflet-popup-tip { background: var(--cream); }
-.map-popup { padding: 18px; display: flex; flex-direction: column; }
+.map-popup { padding: 20px; display: flex; flex-direction: column; }
 .map-popup span { color: var(--coral); text-transform: uppercase; letter-spacing: .08em; font-size: 8px; font-weight: 800; }
 .map-popup strong { margin-top: 8px; font: 400 23px/1.05 var(--display); }
-.map-popup a { margin-top: 15px; font-size: 10px; font-weight: 800; }
+.map-popup p { margin: 13px 0 0; color: #59625e; font-size: 11px; line-height: 1.5; }
+.map-popup-links { margin-top: 15px; padding-top: 12px; display: flex; flex-wrap: wrap; gap: 7px 12px; border-top: 1px solid var(--line); }
+.map-popup-links a { color: var(--forest); font-size: 9px; font-weight: 800; text-decoration: none; }
+.map-popup-links a:first-child { width: 100%; color: var(--coral); }
 
 .places-section { padding: 140px clamp(20px,5vw,78px); background: var(--forest); color: white; }
 .section-intro.light .kicker { color: var(--lime); }
