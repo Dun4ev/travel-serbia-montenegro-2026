@@ -2,3 +2,6 @@ dist/
 data/
 output/
 .netlify/
+node_modules/
+.next/
+.wrangler/
