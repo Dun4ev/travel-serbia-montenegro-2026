@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type Day = {
   date: string;
@@ -83,6 +83,178 @@ const stays = [
   ["15-16", "Vila Plava", "Златар", "1 ночь"],
 ];
 
+type MapPriority = "обязательно" | "желательно" | "дополнительно";
+
+type MapFeature = {
+  type: "Feature";
+  properties: {
+    id: string;
+    name: string;
+    priority: MapPriority;
+    date?: string;
+    dates?: string[];
+  };
+  geometry: { type: "Point"; coordinates: [number, number] };
+};
+
+type MapData = { type: "FeatureCollection"; features: MapFeature[] };
+
+const mapFilters: { label: string; value: "all" | MapPriority }[] = [
+  { label: "Все", value: "all" },
+  { label: "Обязательно", value: "обязательно" },
+  { label: "Желательно", value: "желательно" },
+  { label: "Дополнительно", value: "дополнительно" },
+];
+
+const priorityClass: Record<MapPriority, string> = {
+  обязательно: "must",
+  желательно: "want",
+  дополнительно: "extra",
+};
+
+const mainRoute = [
+  "belgrade-center",
+  "gold-gondola-zlatibor",
+  "gusinje-center",
+  "ali-pasha-springs",
+  "kotor-old-town",
+  "perast",
+  "kotor-cable-car-kuk",
+  "brdo-zlatar-area",
+  "banjska-stena",
+  "drina-river-house",
+  "belgrade-center",
+];
+
+function formatMapDates(feature: MapFeature) {
+  const rawDates = feature.properties.dates ?? (feature.properties.date ? feature.properties.date.split(";") : []);
+  return rawDates.map((date) => {
+    const parsed = new Date(`${date}T12:00:00`);
+    return Number.isNaN(parsed.getTime()) ? date : new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long" }).format(parsed);
+  }).join(" · ");
+}
+
+function TripMap() {
+  const mapNode = useRef<HTMLDivElement | null>(null);
+  const mapRef = useRef<import("leaflet").Map | null>(null);
+  const leafletRef = useRef<typeof import("leaflet") | null>(null);
+  const pointsLayerRef = useRef<import("leaflet").LayerGroup | null>(null);
+  const [data, setData] = useState<MapData | null>(null);
+  const [filter, setFilter] = useState<"all" | MapPriority>("all");
+  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+
+  useEffect(() => {
+    let disposed = false;
+
+    async function initializeMap() {
+      try {
+        const [leaflet, response] = await Promise.all([
+          import("leaflet"),
+          fetch("/data/map_points.geojson"),
+        ]);
+        if (!response.ok) throw new Error("Не удалось загрузить точки");
+        const points = await response.json() as MapData;
+        if (disposed || !mapNode.current) return;
+
+        const map = leaflet.map(mapNode.current, {
+          scrollWheelZoom: false,
+          zoomControl: false,
+        });
+        leaflet.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "&copy; OpenStreetMap",
+        }).addTo(map);
+        leaflet.control.zoom({ position: "topright" }).addTo(map);
+
+        const featuresById = new Map(points.features.map((feature) => [feature.properties.id, feature]));
+        const routeCoordinates = mainRoute
+          .map((id) => featuresById.get(id))
+          .filter((feature): feature is MapFeature => Boolean(feature))
+          .map((feature) => [feature.geometry.coordinates[1], feature.geometry.coordinates[0]] as [number, number]);
+        leaflet.polyline(routeCoordinates, {
+          color: "#e86143",
+          weight: 3,
+          opacity: 0.72,
+          dashArray: "3 11",
+          lineCap: "round",
+        }).addTo(map);
+
+        leafletRef.current = leaflet;
+        mapRef.current = map;
+        setData(points);
+        setStatus("ready");
+      } catch {
+        if (!disposed) setStatus("error");
+      }
+    }
+
+    initializeMap();
+    return () => {
+      disposed = true;
+      mapRef.current?.remove();
+      mapRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    const leaflet = leafletRef.current;
+    const map = mapRef.current;
+    if (!leaflet || !map || !data) return;
+
+    pointsLayerRef.current?.remove();
+    const visible = data.features.filter((feature) => filter === "all" || feature.properties.priority === filter);
+    const layer = leaflet.layerGroup();
+
+    visible.forEach((feature) => {
+      const [longitude, latitude] = feature.geometry.coordinates;
+      const marker = leaflet.marker([latitude, longitude], {
+        icon: leaflet.divIcon({
+          className: "trip-marker-shell",
+          html: `<span class="trip-marker trip-marker-${priorityClass[feature.properties.priority]}"></span>`,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+        }),
+      });
+
+      const popup = document.createElement("div");
+      popup.className = "map-popup";
+      const meta = document.createElement("span");
+      meta.textContent = `${feature.properties.priority} · ${formatMapDates(feature)}`;
+      const title = document.createElement("strong");
+      title.textContent = feature.properties.name;
+      const link = document.createElement("a");
+      link.href = `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=15/${latitude}/${longitude}`;
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      link.textContent = "Открыть точку ↗";
+      popup.append(meta, title, link);
+      marker.bindPopup(popup, { closeButton: false, offset: [0, -8] });
+      marker.addTo(layer);
+    });
+
+    layer.addTo(map);
+    pointsLayerRef.current = layer;
+    const bounds = leaflet.latLngBounds(visible.map((feature) => [feature.geometry.coordinates[1], feature.geometry.coordinates[0]]));
+    if (bounds.isValid()) map.fitBounds(bounds, { padding: [38, 38], maxZoom: 11 });
+  }, [data, filter]);
+
+  const visibleCount = data?.features.filter((feature) => filter === "all" || feature.properties.priority === filter).length ?? 0;
+
+  return (
+    <div className="atlas-map-shell">
+      <div className="map-toolbar" aria-label="Фильтр точек">
+        {mapFilters.map((item) => (
+          <button key={item.value} className={filter === item.value ? "active" : ""} onClick={() => setFilter(item.value)}>{item.label}</button>
+        ))}
+      </div>
+      <div ref={mapNode} className="trip-map" aria-label="Интерактивная карта маршрута по Сербии и Черногории" />
+      {status === "loading" && <div className="map-state">Загружаем карту...</div>}
+      {status === "error" && <div className="map-state map-error">Карта не загрузилась. Проверьте соединение.</div>}
+      {status === "ready" && <div className="map-counter"><strong>{visibleCount}</strong><span>точек на карте</span></div>}
+    </div>
+  );
+}
+
 export default function Home() {
   const [activeDay, setActiveDay] = useState(0);
   const [done, setDone] = useState<number[]>([]);
@@ -107,6 +279,7 @@ export default function Home() {
         <a className="wordmark" href="#top" aria-label="В начало">BALKAN<br />ROADBOOK</a>
         <nav aria-label="Разделы сайта">
           <a href="#route">11 дней</a>
+          <a href="#map">Карта</a>
           <a href="#places">Что посмотреть</a>
           <a href="#ready">Перед выездом</a>
         </nav>
@@ -166,9 +339,24 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="atlas-section" id="map">
+        <div className="atlas-copy">
+          <p className="kicker">02 / Карта маршрута</p>
+          <h2>Весь путь.<br /><i>Одним взглядом.</i></h2>
+          <p>Все 23 отмеченные точки: горы, море, города и короткие остановки. Нажмите на маркер, чтобы увидеть название, дату и открыть точку в OpenStreetMap.</p>
+          <div className="map-legend" aria-label="Легенда карты">
+            <span><i className="legend-must" />обязательно</span>
+            <span><i className="legend-want" />желательно</span>
+            <span><i className="legend-extra" />дополнительно</span>
+          </div>
+          <small>Метка показывает объект, но не гарантированное место парковки или точку доступа. Эти детали требуют проверки.</small>
+        </div>
+        <TripMap />
+      </section>
+
       <section className="places-section" id="places">
         <div className="section-intro light">
-          <p className="kicker">02 / Не пропустить</p>
+          <p className="kicker">03 / Не пропустить</p>
           <h2>Семь мест.<br />Семь разных характеров.</h2>
           <p>От сосен Златибора и скал Проклетие до камня Боки и финального вида на Дрину. В каждой точке оставлено только то, что реально помещается в маршрут.</p>
         </div>
@@ -193,7 +381,7 @@ export default function Home() {
 
       <section className="ready-section" id="ready">
         <div className="ready-copy">
-          <p className="kicker">03 / Перед выездом</p>
+          <p className="kicker">04 / Перед выездом</p>
           <h2>Спокойствие начинается с восьми галочек.</h2>
           <p>Отметки сохраняются только в этом браузере. Они не меняют исходный маршрут.</p>
           <div className="progress-ring" style={{ "--progress": `${progress * 3.6}deg` } as React.CSSProperties}><strong>{done.length}</strong><span>из {checklist.length}</span></div>
