@@ -90,6 +90,7 @@ button { color: inherit; }
 .section-intro.light > p:last-child { color: rgba(255,255,255,.64); }
 .highlight-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
 .highlight-card { background: var(--cream); color: var(--ink); }
+.highlight-card:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
 .highlight-image { min-height: 420px; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; background-position: center; background-size: cover; color: white; }
 .highlight-image span { text-transform: uppercase; letter-spacing: .13em; font-size: 9px; font-weight: 700; }
 .highlight-image h3 { margin: 8px 0 0; font: 400 clamp(50px,6vw,86px)/.9 var(--display); }
@@ -137,6 +138,7 @@ footer a { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-
   .day-rail button { min-width: 142px; grid-template-columns: 32px 60px; }
   .day-rail button small { grid-column: 2; }
   .highlight-grid { grid-template-columns: 1fr; }
+  .highlight-card:last-child:nth-child(odd) { grid-column: auto; display: block; }
   .stays-section, .ready-section { gap: 58px; }
 }
 
