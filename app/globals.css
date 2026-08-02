@@ -144,7 +144,55 @@ button { color: inherit; }
 .pick-list small { color: var(--coral); text-transform: uppercase; letter-spacing: .09em; font-size: 8px; font-weight: 800; }
 .pick-list h4 { margin: 7px 0 6px; font: 400 28px/1 var(--display); }
 .pick-list p { margin: 0; color: #68706c; font-size: 13px; line-height: 1.5; }
-.highlight-body > a { display: inline-block; margin-top: 24px; color: var(--forest); font-size: 11px; font-weight: 700; }
+.highlight-actions { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 24px; }
+.highlight-actions button { min-height: 46px; padding: 0 18px; display: inline-flex; align-items: center; gap: 28px; color: white; background: var(--forest); border: 0; cursor: pointer; font-size: 11px; font-weight: 700; transition: .2s ease; }
+.highlight-actions button span { color: var(--lime); font-size: 18px; transition: transform .2s ease; }
+.highlight-actions button:hover { background: var(--coral); }
+.highlight-actions button:hover span { transform: translateX(4px); }
+.highlight-actions a { color: var(--forest); font-size: 10px; font-weight: 700; }
+
+.place-dialog { width: min(1180px, calc(100vw - 48px)); max-width: none; height: min(860px, calc(100svh - 48px)); max-height: none; padding: 0; color: var(--ink); background: var(--cream); border: 0; border-radius: 2px 54px 2px 2px; box-shadow: 0 30px 100px rgba(10,22,19,.46); overflow: hidden; overscroll-behavior: contain; }
+.place-dialog::backdrop { background: rgba(10,22,19,.78); backdrop-filter: blur(8px); }
+.place-dialog-sheet { height: 100%; min-height: 0; display: grid; grid-template-columns: minmax(300px,.72fr) minmax(0,1.28fr); }
+.place-dialog-hero { height: 100%; min-height: 0; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; color: white; background-position: center; background-size: cover; }
+.place-dialog-chapter, .place-dialog-hero small, .place-dialog-credit { text-transform: uppercase; letter-spacing: .13em; font-size: 8px; font-weight: 700; }
+.place-dialog-hero h2 { margin: 10px 0 18px; font: 400 clamp(58px,7vw,104px)/.82 var(--display); letter-spacing: -.04em; }
+.place-dialog-hero p { max-width: 390px; margin: 0; color: rgba(255,255,255,.76); font-size: 14px; line-height: 1.55; }
+.place-dialog-credit { opacity: .6; }
+.place-dialog-content { min-height: 0; padding: 74px clamp(28px,5vw,72px) 58px; position: relative; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-gutter: stable; }
+.place-dialog-close { position: absolute; top: 22px; right: 26px; padding: 8px 0; display: flex; align-items: center; gap: 10px; color: #65706a; background: none; border: 0; cursor: pointer; text-transform: uppercase; letter-spacing: .1em; font-size: 8px; font-weight: 800; }
+.place-dialog-close span { width: 28px; height: 28px; display: grid; place-items: center; color: var(--forest); border: 1px solid var(--line); border-radius: 50%; font-size: 19px; font-weight: 400; transition: .2s ease; }
+.place-dialog-close:hover span { color: white; background: var(--coral); border-color: var(--coral); transform: rotate(8deg); }
+.place-dialog-location { padding: 17px 20px; display: grid; grid-template-columns: 92px 1fr; gap: 18px; background: var(--sand); border-left: 3px solid var(--coral); }
+.place-dialog-location span, .place-dialog-choice span { color: var(--coral); text-transform: uppercase; letter-spacing: .1em; font-size: 8px; font-weight: 800; }
+.place-dialog-location p { margin: 0; font-size: 12px; line-height: 1.5; }
+.place-dialog-story { margin-top: 42px; }
+.place-dialog-story .kicker, .place-dialog-facts .kicker, .place-dialog-route .kicker { margin-bottom: 14px; color: var(--coral); }
+.place-dialog-story > p:not(.kicker) { margin: 0 0 15px; color: #4f5b55; font-size: 16px; line-height: 1.68; }
+.place-dialog-facts { margin: 34px 0 0; padding: 24px; background: var(--forest); color: white; border-radius: 2px 28px 2px 2px; }
+.place-dialog-facts .kicker { color: var(--lime); }
+.place-dialog-facts ul { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; list-style: none; counter-reset: facts; }
+.place-dialog-facts li { padding-top: 14px; border-top: 1px solid rgba(255,255,255,.22); color: rgba(255,255,255,.75); font-size: 11px; line-height: 1.55; }
+.place-dialog-details { margin-top: 42px; }
+.place-dialog-details .kicker { margin-bottom: 4px; color: var(--coral); }
+.place-dialog-details > div { display: grid; grid-template-columns: repeat(3,1fr); gap: 0 22px; }
+.place-dialog-details article { padding: 18px 0; border-top: 1px solid var(--line); }
+.place-dialog-details h3 { margin: 0; font: 400 21px/1.08 var(--display); }
+.place-dialog-details article p { margin: 8px 0 0; color: #68716d; font-size: 11px; line-height: 1.55; }
+.place-dialog-route { margin-top: 44px; }
+.place-dialog-route-head { display: grid; grid-template-columns: 1fr 180px; gap: 28px; align-items: end; }
+.place-dialog-route h3 { margin: 0; font: 400 36px/1 var(--display); }
+.place-dialog-route-head > span { color: #6d7772; font-size: 10px; line-height: 1.5; }
+.place-dialog-route ol { margin: 24px 0 0; padding: 0; list-style: none; }
+.place-dialog-route li { padding: 17px 0; display: grid; grid-template-columns: 44px 1fr; gap: 12px; border-top: 1px solid var(--line); }
+.place-dialog-route li > span { color: var(--coral); font-size: 9px; font-weight: 800; }
+.place-dialog-route strong { font: 400 22px/1 var(--display); }
+.place-dialog-route li p { margin: 5px 0 0; color: #68716d; font-size: 11px; line-height: 1.5; }
+.place-dialog-choice { margin-top: 28px; padding: 21px 0; display: grid; grid-template-columns: 140px 1fr; gap: 20px; border-block: 1px solid var(--coral); }
+.place-dialog-choice p { margin: 0; color: #56615b; font-size: 12px; line-height: 1.6; }
+.place-dialog-sources { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; }
+.place-dialog-sources span { width: 100%; color: #7a837e; text-transform: uppercase; letter-spacing: .1em; font-size: 8px; font-weight: 800; }
+.place-dialog-sources a { color: var(--forest); font-size: 10px; font-weight: 800; }
 
 .ready-section { padding: 140px clamp(20px,5vw,78px); display: grid; grid-template-columns: .8fr 1.2fr; gap: 9vw; }
 .ready-copy { position: relative; }
@@ -182,6 +230,9 @@ footer a { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-
   .day-rail button small { grid-column: 2; }
   .highlight-grid { grid-template-columns: 1fr; }
   .highlight-card:last-child:nth-child(odd) { grid-column: auto; display: block; }
+  .place-dialog { width: calc(100vw - 28px); height: calc(100svh - 28px); overflow-y: auto; }
+  .place-dialog-sheet { height: auto; min-height: 100%; display: block; }
+  .place-dialog-hero { min-height: 430px; }
   .stays-section, .atlas-section, .ready-section { gap: 58px; }
   .atlas-copy { position: static; }
 }
@@ -202,6 +253,13 @@ footer a { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-
   .risk { grid-template-columns: 1fr; }
   .stay-line { grid-template-columns: 1fr; }
   .highlight-image { min-height: 330px; }
+  .place-dialog { width: 100vw; height: 100svh; border-radius: 0; }
+  .place-dialog-hero { min-height: 390px; padding: 22px; }
+  .place-dialog-content { padding: 68px 20px 42px; overflow: visible; }
+  .place-dialog-location, .place-dialog-choice { grid-template-columns: 1fr; gap: 8px; }
+  .place-dialog-facts ul { grid-template-columns: 1fr; gap: 8px; }
+  .place-dialog-details > div { grid-template-columns: 1fr; }
+  .place-dialog-route-head { grid-template-columns: 1fr; gap: 14px; }
   .atlas-map-shell { margin-inline: -8px; padding: 7px; border-radius: 2px 34px 2px 2px; }
   .trip-map { min-height: 520px; height: 67vh; border-radius: 2px 27px 2px 2px; }
   .map-toolbar { top: 18px; left: 18px; right: 65px; }
