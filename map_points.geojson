@@ -13,6 +13,11 @@
     },
     {
       "type": "Feature",
+      "properties": {"id": "sumatno-brdo", "name": "Šumatno brdo / Spomenik na Šumatnom brdu", "priority": "дополнительно", "dates": ["2026-08-06", "2026-08-07"]},
+      "geometry": {"type": "Point", "coordinates": [19.7119444, 43.7112222]}
+    },
+    {
+      "type": "Feature",
       "properties": {"id": "brdo-zlatar-area", "name": "Brdo / район Златара", "priority": "обязательно", "dates": ["2026-08-15", "2026-08-16"]},
       "geometry": {"type": "Point", "coordinates": [19.82196, 43.438795]}
     },
