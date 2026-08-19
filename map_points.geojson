@@ -63,6 +63,21 @@
     },
     {
       "type": "Feature",
+      "properties": {"id": "vukotic-obala", "name": "Apartments Vukotic Obala", "priority": "обязательно", "dates": ["2026-08-10", "2026-08-11"]},
+      "geometry": {"type": "Point", "coordinates": [18.9392281, 42.2063963]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "sveti-stefan-highway-view", "name": "Sveti Stefan - обзор с M-1/E80", "priority": "обязательно", "date": "2026-08-11"},
+      "geometry": {"type": "Point", "coordinates": [18.894703, 42.255538]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "budva-old-town", "name": "Stari Grad Budva", "priority": "обязательно", "date": "2026-08-11"},
+      "geometry": {"type": "Point", "coordinates": [18.836961, 42.2839437]}
+    },
+    {
+      "type": "Feature",
       "properties": {"id": "kotor-old-town", "name": "Stari Grad Kotor", "priority": "обязательно", "date": "2026-08-12"},
       "geometry": {"type": "Point", "coordinates": [18.7712, 42.4247]}
     },

@@ -54,31 +54,32 @@ const days = [
   },
   {
     date: "10 авг",
-    place: "Гусине",
-    pace: "восстановление",
-    title: "Источники и долина Ropojana",
-    intro: "Спокойный природный день после похода: короткие переезды, вода и начальная часть ледниковой долины.",
+    place: "Гусине - Петровац",
+    pace: "переезд",
+    title: "Источники и дорога к морю",
+    intro: "После природных точек вокруг Гусине маршрут продолжился к морю с дополнительной ночевкой в Петроваце.",
     stops: [
       ["Ali-pašini izvori", "30-45 минут у карстового источника."],
       ["Vodopad Grlja", "30-45 минут; каньон осматривать только сверху."],
       ["Oko Skakavice", "2-2,5 часа пешком туда и обратно по начальной части Ropojana."],
-      ["Гусине", "Поздний обед и отдых."],
-      ["Plavsko jezero", "Дополнительно, только при нормальном самочувствии группы."]
+      ["Гусине", "Выезд к побережью."],
+      ["Apartments Vukotic Obala", "Фактическая ночевка 10-11 августа в Петроваце."]
     ],
-    warning: "Не ехать дальше по плохой грунтовке и не продолжать прогулку к государственной границе."
+    warning: "Фактическое время выезда и остановки по дороге не зафиксированы."
   },
   {
     date: "11 авг",
-    place: "Бока",
+    place: "Петровац - Kotor",
     pace: "переезд",
-    title: "Гусине - район Котора",
-    intro: "Длинный переезд и спокойный вечер после заселения в Apartments SOUTH NEST.",
+    title: "Sveti Stefan и Budva по пути",
+    intro: "После ночевки в Петроваце группа посмотрела Sveti Stefan с трассы, посетила Stari Grad Budva и продолжила путь в Kotor.",
     stops: [
-      ["Hotel Rosi", "Выезд до 11:00."],
-      ["Apartments SOUTH NEST", "Заезд после 15:00; точный адрес пока требует проверки."],
-      ["Ужин рядом", "1-2 часа без отдельной поездки в Котор или Пераст."]
+      ["Apartments Vukotic Obala", "Выезд из Петроваца."],
+      ["Sveti Stefan", "Фактический обзор с M-1/E80 без спуска к пляжу."],
+      ["Stari Grad Budva", "Фактически посетили старый город."],
+      ["Kotor и Apartments SOUTH NEST", "Продолжение маршрута и заселение."]
     ],
-    warning: "После получения адреса жилья пересчитать все локальные переезды 12-15 августа."
+    warning: "Останавливаться у Sveti Stefan только в разрешенном безопасном месте; в Budva и Kotor парковка ограничена."
   },
   {
     date: "12 авг",
@@ -269,7 +270,10 @@ async function initMap() {
     attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
   try {
-    const response = await fetch("data/map_points.geojson");
+    const mapDataUrl = window.location.protocol === "file:"
+      ? "public/data/map_points.geojson"
+      : "data/map_points.geojson";
+    const response = await fetch(mapDataUrl);
     if (!response.ok) throw new Error("Не удалось загрузить GeoJSON");
     geoData = await response.json();
     document.querySelectorAll("[data-point-count]").forEach((element) => {

@@ -40,8 +40,8 @@ const days: Day[] = [
   { date: "07.08", city: "Златибор", title: "День над соснами", kind: "горы", tempo: "средний", intro: "Gold Gondola остается главным событием. После нее только легкая программа, без гонки по достопримечательностям.", stops: ["Gold Gondola Zlatibor", "Прогулка на Tornik", "Отдых и подготовка к границе"], risk: "Проверить погоду, режим работы, билеты и парковку." },
   { date: "08.08", city: "Гусине", title: "Через границу к Проклетие", kind: "дорога", tempo: "переезд", intro: "Длинная дорога к Hotel Rosi. Вечер нужен для восстановления перед главным горным днем.", stops: ["Выезд из Pine Cabins", "Граница Сербия - Черногория", "Заселение и ранний ужин"], risk: "Пункт перехода и продолжительность дороги требуют проверки." },
   { date: "09.08", city: "Проклетие", title: "Три вершины", kind: "горы", tempo: "интенсивно", intro: "Единственный сложный поход: Popadija, Talijanka и Volusnica, круговой маршрут 10,89 км и около 960 м набора.", stops: ["Ранний выезд в Dolja", "Cafa - Popadija - Talijanka - Volusnica", "Возвращение в Гусине"], risk: "Гроза, жара, крутые участки, граница и отсутствие связи." },
-  { date: "10.08", city: "Гусине", title: "Вода и восстановление", kind: "пауза", tempo: "легкий", intro: "Короткие переезды, источники и начало долины Ropojana после сложного похода.", stops: ["Ali-pašini izvori", "Vodopad Grlja", "Oko Skakavice", "Plavsko jezero - только по силам"], risk: "Не продолжать по плохой грунтовке и к государственной границе." },
-  { date: "11.08", city: "Бока", title: "К морю", kind: "дорога", tempo: "переезд", intro: "Переезд из Гусине к Apartments SOUTH NEST. В этот день Боку лучше увидеть из окна, а не пытаться успеть все.", stops: ["Выезд из Hotel Rosi", "Дорога к побережью", "Заселение и ужин рядом"], risk: "Летний трафик и точный адрес жилья пока требуют проверки." },
+  { date: "10.08", city: "Гусине → Петровац", title: "Вода и дорога к морю", kind: "дорога", tempo: "переезд", intro: "После дня вокруг Гусине маршрут продолжился к морю с дополнительной ночевкой в Петроваце.", stops: ["Ali-pašini izvori и Ropojana", "Выезд из Гусине", "Apartments Vukotic Obala", "Ночевка в Петроваце"], risk: "Фактическое время выезда и остановки по дороге не зафиксированы." },
+  { date: "11.08", city: "Петровац → Kotor", title: "Sveti Stefan и Budva по пути", kind: "дорога", tempo: "переезд", intro: "После ночевки в Петроваце группа посмотрела Sveti Stefan с трассы, посетила Stari Grad Budva и продолжила путь в Kotor.", stops: ["Выезд из Петроваца", "Sveti Stefan с M-1/E80", "Stari Grad Budva", "Kotor и SOUTH NEST"], risk: "Останавливаться у Sveti Stefan только в разрешенном безопасном месте; в Budva и Kotor парковка ограничена." },
   { date: "12.08", city: "Котор", title: "Крепость до жары", kind: "море", tempo: "ранний старт", intro: "Подъем к Kotor Fortress утром, затем Старый город и свободный остаток дня у воды.", stops: ["Kotor Fortress", "Stari Grad Kotor", "Поздний завтрак или ранний обед", "Отдых у воды"], risk: "Мало тени, каменные ступени, круизные группы и парковка." },
   { date: "13.08", city: "Пераст", title: "Камень, остров, море", kind: "море", tempo: "спокойно", intro: "Ранний Пераст, короткая лодка к Gospa od Škrpjela и Kraken только при подтвержденной брони.", stops: ["Пераст к 08:00", "Gospa od Škrpjela", "Набережная и музей", "Kraken или спокойное купание"], risk: "Парковка, лодки, цена Kraken и водитель без алкоголя." },
   { date: "14.08", city: "Ловчен", title: "Бока с высоты", kind: "горы", tempo: "средний", intro: "Канатная дорога Dub-Kuk, короткая прогулка, Alpine Coaster и неспешный вечер в Тивате.", stops: ["Станция Dub", "Kuk и смотровые", "Alpine Coaster", "Тиват / Porto Montenegro"], risk: "Ветер, гроза, очереди и прохлада на верхней станции." },
@@ -50,7 +50,7 @@ const days: Day[] = [
 ];
 
 const checklist = [
-  "Адреса всех четырех мест ночевки",
+  "Адреса всех пяти мест ночевки",
   "Документы автомобиля и страховка",
   "Офлайн-карты и трек похода",
   "Прогноз для Проклетие",
@@ -79,7 +79,7 @@ const highlights: Highlight[] = [
     routeTime: "Половина или почти целый день, если смотреть все три точки без спешки.",
     choice: "Šumatno brdo можно поставить вечером 6 августа или после Gold Gondola 7 августа, но только один раз и при запасе светлого времени. Дугу Stopića pećina - Sirogojno - Gostilje оставить запасным сценарием.",
   } },
-  { place: "Проклетие", tag: "08-11 августа · 3 ночи", image: "/images/prokletije.jpg", credit: "Marko Randjic / CC BY-SA 4.0", lead: "Самая дикая часть поездки. Один день отдан сложному маршруту, второй - воде, коротким прогулкам и восстановлению вокруг Гусине.", picks: [
+  { place: "Проклетие", tag: "08-10 августа · 2 ночи", image: "/images/prokletije.jpg", credit: "Marko Randjic / CC BY-SA 4.0", lead: "Самая дикая часть поездки. Один день отдан сложному маршруту, второй - воде, коротким прогулкам и восстановлению вокруг Гусине.", picks: [
     ["Popadija - Talijanka - Volusnica", "обязательно", "Полный горный день: 10,89 км, около 960 м набора и 6-7 часов с остановками."],
     ["Ropojana и Oko Skakavice", "обязательно в день восстановления", "Короткая прогулка по началу долины без продолжения к государственной границе."],
     ["Ali-pašini izvori и Grlja", "желательно", "Две короткие природные остановки, которые не перегружают восстановительный день."],
@@ -187,7 +187,8 @@ const highlights: Highlight[] = [
 
 const stays = [
   ["06-08", "Pine Cabins", "Златибор", "2 ночи"],
-  ["08-11", "Hotel Rosi", "Гусине", "3 ночи"],
+  ["08-10", "Hotel Rosi", "Гусине", "2 ночи"],
+  ["10-11", "Vukotic Obala", "Петровац", "1 ночь"],
   ["11-15", "SOUTH NEST", "район Котора", "4 ночи"],
   ["15-16", "Vila Plava", "Златар", "1 ночь"],
 ];
@@ -234,6 +235,9 @@ const locationGuides: Record<string, { tip: string; source: string; sourceLabel:
   "ropojana-valley-short": { tip: "Это восстановительная прогулка, а не второй поход. Разворачивайтесь до ухудшения грунтовки и не продолжайте к государственной границе.", source: "https://gusinje.travel/tourist-offer/", sourceLabel: "Туристическая организация Гусине" },
   "gusinje-center": { tip: "Используйте центр как практическую паузу: ранний ужин, продукты, банкомат и подготовка воды. После горного дня не добавляйте дальний выезд.", source: "https://gusinje.travel/", sourceLabel: "Visit Gusinje" },
   "plav-lake": { tip: "Оставляйте озеро дополнительным вариантом на закат только при хорошем самочувствии группы. Для спокойной паузы достаточно набережной.", source: "https://www.plavto.me/", sourceLabel: "Туристическая организация Плав" },
+  "vukotic-obala": { tip: "Фактическая ночевка 10-11 августа. Точка ведет к объекту в Петроваце; условия парковки не зафиксированы.", source: "https://www.booking.com/hotel/me/vukotic-obala.ru.html", sourceLabel: "Booking.com: Vukotic Obala" },
+  "sveti-stefan-highway-view": { tip: "Это обзор с M-1/E80, а не точка доступа к острову. Останавливайтесь только в разрешенном безопасном кармане и не создавайте помех движению.", source: "https://commons.wikimedia.org/wiki/File:E80,_Sveti_Stefan,_Montenegro_-_panoramio.jpg", sourceLabel: "Wikimedia Commons: ракурс с E80" },
+  "budva-old-town": { tip: "Оставьте автомобиль за пределами исторического ядра и проходите Stari Grad пешком. Точка карты ведет к Citadela, а не к парковке.", source: "https://www.visitbudva.com/citadela.html", sourceLabel: "Visit Budva: Citadela" },
   "kotor-old-town": { tip: "Гуляйте после утреннего спуска с крепости: поздний завтрак и тенистые улицы лучше еще одного подъема в жару.", source: "https://kotor.travel/", sourceLabel: "Visit Kotor" },
   "kotor-fortress": { tip: "Начинайте как можно раньше, берите воду и защиту от солнца. Перед выходом проверьте официальный вход и состояние маршрута, не используйте обходы.", source: "https://kotor.travel/", sourceLabel: "Visit Kotor" },
   "perast": { tip: "Приезжайте около 08:00 и оставляйте автомобиль у въезда: исторический центр лучше проходить пешком до появления дневных групп.", source: "https://kotor.travel/", sourceLabel: "Visit Kotor" },
@@ -512,7 +516,7 @@ export default function Home() {
       </section>
 
       <section className="stays-section" aria-labelledby="stays-title">
-        <div><p className="kicker">Ночевки фиксированы</p><h2 id="stays-title">Четыре базы,<br />одна линия.</h2></div>
+        <div><p className="kicker">Фактические ночевки</p><h2 id="stays-title">Пять баз,<br />одна линия.</h2></div>
         <div className="stay-line">
           {stays.map(([date, name, place, nights], index) => <article key={name}><span>{index + 1}</span><small>{date} августа</small><h3>{name}</h3><p>{place} · {nights}</p></article>)}
         </div>
@@ -522,7 +526,7 @@ export default function Home() {
         <div className="atlas-copy">
           <p className="kicker">02 / Карта маршрута</p>
           <h2>Весь путь.<br /><i>Одним взглядом.</i></h2>
-          <p>Все 24 отмеченные точки: горы, море, города и короткие остановки. В каждой карточке есть практический совет, проверенный источник, маршрут и поиск парковки.</p>
+          <p>Все 27 отмеченных точек: горы, море, города, места ночевки и короткие остановки. В каждой карточке есть практический совет, проверенный источник, маршрут и поиск парковки.</p>
           <div className="map-legend" aria-label="Легенда карты">
             <span><i className="legend-must" />обязательно</span>
             <span><i className="legend-want" />желательно</span>
